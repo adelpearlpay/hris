@@ -1,6 +1,5 @@
 package com.pearlpay.hris.person.dto;
 
-import com.pearlpay.hris.base.dto.IdGenEntityDTO;
 import com.pearlpay.hris.person.entity.AddressInformation;
 import com.pearlpay.hris.person.entity.ContactInformation;
 import com.pearlpay.hris.person.entity.GuardianInformation;
@@ -23,7 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class PersonalDTO extends IdGenEntityDTO {
+public class PersonalDTO extends BaseEntityDTO {
 
     private String firstName;
     private String lastName;

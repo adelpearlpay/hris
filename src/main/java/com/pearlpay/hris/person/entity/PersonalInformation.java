@@ -1,6 +1,5 @@
 package com.pearlpay.hris.person.entity;
 
-import com.pearlpay.hris.base.entity.IdGenEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,7 +18,7 @@ import java.util.List;
 @SuperBuilder
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "personal_information")
-public class PersonalInformation extends IdGenEntity {
+public class PersonalInformation extends BaseEntity {
 
     @Column(name = "first_name")
     private String firstName;

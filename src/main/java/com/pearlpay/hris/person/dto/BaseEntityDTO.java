@@ -1,4 +1,4 @@
-package com.pearlpay.hris.base.dto;
+package com.pearlpay.hris.person.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IdGenEntityDTO {
+public class BaseEntityDTO {
     private Long Id;
     private Timestamp dateCreated;
     private Timestamp dateUpdated;

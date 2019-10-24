@@ -1,4 +1,4 @@
-package com.pearlpay.hris.base.entity;
+package com.pearlpay.hris.person.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,11 +11,11 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Data
-@Entity
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IdGenEntity {
+@MappedSuperclass
+public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

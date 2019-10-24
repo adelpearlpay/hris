@@ -1,6 +1,5 @@
 package com.pearlpay.hris.person.entity;
 
-import com.pearlpay.hris.base.entity.IdGenEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,7 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "contact_information")
-public class ContactInformation extends IdGenEntity {
+public class ContactInformation extends BaseEntity {
 
     @Column(name = "landline_number")
     private String landlineNumber;

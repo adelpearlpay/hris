@@ -16,3 +16,4 @@ spring:
 logging:
   level:
     com.pearlpay.training: DEBUG
+

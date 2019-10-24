@@ -1,6 +1,6 @@
 package com.pearlpay.hris.person.dto;
 
-import com.pearlpay.hris.base.dto.IdGenEntityDTO;
+import com.pearlpay.hris.person.entity.PersonalInformation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class AddressDTO extends IdGenEntityDTO {
+public class AddressDTO extends BaseEntityDTO {
     private String type;
     private String unitNumber;
     private String street;

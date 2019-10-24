@@ -1,6 +1,5 @@
 package com.pearlpay.hris.person.dto;
 
-import com.pearlpay.hris.base.dto.IdGenEntityDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,13 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class ParentsDTO extends IdGenEntityDTO {
+public class ParentsDTO extends BaseEntityDTO {
     private String fatherFirstName;
     private String fatherLastName;
     private String fatherMiddleName;
     private String motherFirstName;
     private String motherLastName;
     private String motherMiddleName;
-    private int numberOfSiblings;
-    private List<String> nameOfSiblings = new ArrayList<>();
 }
