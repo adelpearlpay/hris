@@ -59,11 +59,11 @@ public class PersonalController {
     // guardian information,
     // parents information
     //https://www.baeldung.com/jackson-object-mapper-tutorial
-    @GetMapping(path = "/{firstName}")
-    public ResponseEntity<List<PersonalDTO>> getOneFullDetails(@RequestBody String input) throws JsonProcessingException {
+    @GetMapping(path = "/{name}")
+    public ResponseEntity<List<PersonalDTO>> getOneFullDetails(@RequestBody String name) throws JsonProcessingException {
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
 
-        JsonNode jsonRoot=objectMapper.readTree(input);
+        JsonNode jsonRoot=objectMapper.readTree(name);
         JsonNode jsonFirstName = jsonRoot.get(PERSON_FIRST_NAME);
         JsonNode jsonLastName = jsonRoot.get(PERSON_LAST_NAME);
 
