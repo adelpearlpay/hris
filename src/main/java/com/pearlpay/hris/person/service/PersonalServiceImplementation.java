@@ -1,9 +1,7 @@
 package com.pearlpay.hris.person.service;
 
-import com.pearlpay.hris.person.dto.PersonalDTO;
-import com.pearlpay.hris.person.entity.AddressInformation;
-import com.pearlpay.hris.person.entity.ContactInformation;
-import com.pearlpay.hris.person.entity.PersonalInformation;
+import com.pearlpay.hris.person.dto.*;
+import com.pearlpay.hris.person.entity.*;
 import com.pearlpay.hris.person.repository.PersonalRepo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -23,7 +21,7 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
     @Override
     public PersonalDTO save(PersonalDTO personalDTO) {
 
-        List<AddressInformation> addressInformations=personalDTO.getAddressInformationList()
+        List<AddressInformation> addressInformations=personalDTO.getAddressDTOList()
                 .stream()
                 .map(a -> {
                     AddressInformation addressInformationNew=AddressInformation.builder().build();
@@ -32,7 +30,7 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
                 })
                 .collect(Collectors.toList());
 
-        List<ContactInformation> contactInformations=personalDTO.getContactInformationList()
+        List<ContactInformation> contactInformations=personalDTO.getContactDTOList()
                 .stream()
                 .map(c -> {
                     ContactInformation contactInformationNew =ContactInformation.builder().build();
@@ -41,6 +39,12 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
                 })
                 .collect(Collectors.toList());
 
+        GuardianInformation guardianInformation = GuardianInformation.builder().build();
+        BeanUtils.copyProperties(personalDTO.getGuardianDTO(),guardianInformation);
+
+        ParentsInformation parentsInformation = ParentsInformation.builder().build();
+        BeanUtils.copyProperties(personalDTO.getParentsDTO(),parentsInformation);
+        
         PersonalInformation personalInformation=PersonalInformation
                 .builder()
                 .firstName(personalDTO.getFirstName())
@@ -54,8 +58,8 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
                 .remarks(personalDTO.getRemarks())
                 .addressInformationList(addressInformations)
                 .contactInformationList(contactInformations)
-                .guardianInformation(personalDTO.getGuardianInformation())
-                .parentsInformation(personalDTO.getParentsInformation())
+                .guardianInformation(guardianInformation)
+                .parentsInformation(parentsInformation)
                 .build();
 
         personalInformation.getAddressInformationList()
@@ -76,6 +80,51 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
     //list all data
     @Override
     public List<PersonalDTO> findAll() {
-        return null;
+        return personalRepo.findAll()
+                .stream()
+                .map(person -> 
+                    {
+                        List<AddressDTO>  addressDTOS = person.getAddressInformationList()
+                                .stream()
+                                .map(address ->{
+                                    AddressDTO dto = AddressDTO.builder().build();
+                                    BeanUtils.copyProperties(address,dto);
+                                    return dto;
+                                }).collect(Collectors.toList());
+                        
+                        List<ContactDTO> contactDTOS = person.getContactInformationList()
+                                .stream()
+                                .map(contact -> {
+                                        ContactDTO dto = ContactDTO.builder().build();
+                                        BeanUtils.copyProperties(contact,dto);
+                                        return dto;
+                                }).collect(Collectors.toList());
+
+                        GuardianDTO guardianDTO = GuardianDTO.builder().build();
+                        BeanUtils.copyProperties(person.getGuardianInformation(),guardianDTO);
+
+                        ParentsDTO parentsDTO = ParentsDTO.builder().build();
+                        BeanUtils.copyProperties(person.getParentsInformation(), parentsDTO);
+                        
+                        PersonalDTO personalDTO=PersonalDTO
+                                .builder()
+                                .firstName(person.getFirstName())
+                                .lastName(person.getLastName())
+                                .middleName(person.getMiddleName())
+                                .birthDate(person.getBirthDate())
+                                .gender(person.getGender())
+                                .nationality(person.getNationality())
+                                .civilStatus(person.getCivilStatus())
+                                .religion(person.getReligion())
+                                .remarks(person.getRemarks())
+                                .addressDTOList(addressDTOS)
+                                .contactDTOList(contactDTOS)
+                                .guardianDTO(guardianDTO)
+                                .parentsDTO(parentsDTO)
+                                .build();
+                        
+                        return personalDTO;
+                    }
+                ).collect(Collectors.toList());
     }
 }
