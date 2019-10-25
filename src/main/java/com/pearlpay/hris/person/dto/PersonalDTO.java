@@ -33,8 +33,8 @@ public class PersonalDTO extends BaseEntityDTO {
     private String civilStatus;
     private String religion;
     private String remarks;
-    private List<AddressInformation> addressInformationList;
-    private List<ContactInformation> contactInformationList;
-    private GuardianInformation guardianInformation;
-    private ParentsInformation parentsInformation;
+    private List<AddressDTO> addressDTOList;
+    private List<ContactDTO> contactDTOList;
+    private GuardianDTO guardianDTO;
+    private ParentsDTO parentsDTO;
 }
