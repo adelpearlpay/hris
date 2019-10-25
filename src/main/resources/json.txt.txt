@@ -1,0 +1,45 @@
+{
+	"firstName":"Adel",
+	"lastName":"Albediwy",
+	"middleName":"Abdulkadir",
+	"birthDate":"1996-01-03",
+	"gender":"male",
+	"nationality":"Philippine",
+	"civilStatus":"single",
+	"religion":"muslim",
+	"remarks":"None",
+	"addressDTOList":[
+		{
+			"type":"A",
+			"unitNumber":"12",
+			"street":"Andoks",
+			"city":"Makati",
+			"province":"lalala",
+			"region":"Region-A",
+			"country":"Philippines",
+			"zipCode":"4111"
+		}],
+	"contactDTOList":[
+		{
+			"landlineNumber":"0917454545",
+			"mobileNumber":"123456789",
+			"personalEmail":"a@mail.com"
+		}],
+	"guardianDTO":{
+		"firstName":"The",
+		"lastName":"Guard",
+		"middleName":"Sick",
+		"contactNumber":"911"
+	},
+	"parentsDTO":{
+		"fatherFirstName":"Ba",
+		"fatherLastName":"Ba",
+		"fatherMiddleName":"",
+		"motherFirstName":"Ma",
+		"motherLastName":"Ma",
+		"motherMiddleName":""
+	}
+	
+	
+}
+

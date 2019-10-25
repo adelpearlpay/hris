@@ -43,7 +43,7 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
         BeanUtils.copyProperties(personalDTO.getGuardianDTO(),guardianInformation);
 
         ParentsInformation parentsInformation = ParentsInformation.builder().build();
-        BeanUtils.copyProperties(personalDTO.getParentsDTO(),guardianInformation);
+        BeanUtils.copyProperties(personalDTO.getParentsDTO(),parentsInformation);
         
         PersonalInformation personalInformation=PersonalInformation
                 .builder()
