@@ -18,7 +18,6 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
         this.personalRepo = personalRepo;
     }
 
-
     //POST Save personal information
     @Override
     public PersonalDTO save(PersonalDTO personalDTO) {
@@ -76,6 +75,11 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
     //list all data
     @Override
     public List<PersonalDTO> findAll() {
+        return null;
+    }
+
+    @Override
+    public List<PersonalDTO> findAllById(int id) {
         return null;
     }
 }

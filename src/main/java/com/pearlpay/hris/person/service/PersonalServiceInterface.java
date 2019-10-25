@@ -9,4 +9,6 @@ public interface PersonalServiceInterface {
     PersonalDTO save(PersonalDTO personalDTO);
 
     List<PersonalDTO> findAll();
+
+    List<PersonalDTO> findAllById(int id);
 }
