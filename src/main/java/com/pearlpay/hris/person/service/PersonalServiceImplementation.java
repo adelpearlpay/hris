@@ -128,7 +128,7 @@ public class PersonalServiceImplementation implements PersonalServiceInterface {
     }
 
     @Override
-    public List<PersonalDTO> findAllById(int id) {
+    public List<PersonalDTO> findAllByName(String firstName, String lastName) {
         return null;
     }
 }
